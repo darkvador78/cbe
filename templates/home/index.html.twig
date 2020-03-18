@@ -3,18 +3,45 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% for course in cours %}
+        <div class="col-5 mx-auto">
+                <div class="card mb-3 {% if loop.first %}text-white bg-secondary{% endif %}">
+            <h3 class="card-header">{{ course.title }}</h3>
+            <div class="card-body">
+            </div>
+            {% if course.image is not null %}
+                <img class="img-fluid" style="height: 290px;" src="{{ course.img }}" alt="{{ course.title }}">
+             {% endif %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/Cbe/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/Cbe/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+            <div class="card-body">
+                <a href="{{ url('blog_show', {id: course.id}) }}" class="card-link">En savoir plus &rarr;</a>
+            </div>
+                {% for tag in course.tags %}
+             <div class="card-body">
+                <a href="{{ url('blog_tag', {id: tag.id}) }}" class="card-link"> {{ tag.title }} </a>
+            </div>
+                {% endfor %}
+            <div class="card-footer">
+                {{ course.createdAt|date("d-m-Y") }}
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+    <div class="col-12">
+  <ul class="pagination justify-content-center">
+    <li class="page-item {% if page == 1 %}disabled {% endif %}">
+      <a class="page-link" href="{{ url('blog',{page: page-1}) }}">&laquo;</a>
+    </li>
+    {% for i in 1..total %}
+    <li class="page-item {% if page == i %}active {% endif %}">
+      <a class="page-link" href="{{ url('blog',{page: i}) }}">{{ i }}</a>
+    </li>
+    {% endfor %}
+    <li class="page-item {% if page == total %}disabled {% endif %}">
+      <a class="page-link" href="{{ url('blog',{page: page+1}) }}">&raquo;</a>
+    </li>
+  </ul>
+</div>
 </div>
 {% endblock %}
