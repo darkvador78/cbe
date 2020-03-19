@@ -1,126 +1,7 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block body %}
-{% for course in cours %}
-        <div class="col-5 mx-auto">
-                <div class="card mb-3 {% if loop.first %}text-white bg-secondary{% endif %}">
-            <h3 class="card-header">{{ course.title }}</h3>
-            <div class="card-body">
-            </div>
-            {% if course.image is not null %}
-                <img class="img-fluid" style="height: 290px;" src="{{ course.img }}" alt="{{ course.title }}">
-             {% endif %}
-
-            <div class="card-body">
-                <a href="{{ url('blog_show', {id: course.id}) }}" class="card-link">En savoir plus &rarr;</a>
-            </div>
-                {% for tag in course.tags %}
-             <div class="card-body">
-                <a href="{{ url('blog_tag', {id: tag.id}) }}" class="card-link"> {{ tag.title }} </a>
-            </div>
-                {% endfor %}
-            <div class="card-footer">
-                {{ course.createdAt|date("d-m-Y") }}
-            </div>
-            </div>
-        </div>
-    {% endfor %}
-    <div class="col-12">
-  <ul class="pagination justify-content-center">
-    <li class="page-item {% if page == 1 %}disabled {% endif %}">
-      <a class="page-link" href="{{ url('blog',{page: page-1}) }}">&laquo;</a>
-    </li>
-    {% for i in 1..total %}
-    <li class="page-item {% if page == i %}active {% endif %}">
-      <a class="page-link" href="{{ url('blog',{page: i}) }}">{{ i }}</a>
-    </li>
-    {% endfor %}
-    <li class="page-item {% if page == total %}disabled {% endif %}">
-      <a class="page-link" href="{{ url('blog',{page: page+1}) }}">&raquo;</a>
-    </li>
-  </ul>
-</div>
-</div>
 <body class="no-trans">
-  <!-- scrollToTop --> 
-  <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
-
-  <!-- header start --> 
-  <header class="header fixed clearfix navbar navbar-fixed-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-
-          <!-- header-left start --> 
-          <div class="header-left">
-
-            <!-- logo -->
-            <div class="logo smooth-scroll">
-              <a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-            </div>
-
-            <!-- name-and-slogan -->
-            <div class="logo-section smooth-scroll">
-              <div class="brand"><a href="#banner">Victory</a></div>								
-            </div>
-
-          </div>
-          <!-- header-left end -->
-
-        </div>
-        <div class="col-md-8">
-
-          <!-- header-right start --> 
-          <div class="header-right">
-
-            <!-- main-navigation start --> 
-            <div class="main-navigation animated">
-
-              <!-- navbar start --> 
-              <nav class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
-
-                  <!-- Toggle get grouped for better mobile display -->
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                  </div>
-
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li class="active"><a href="#banner">Home</a></li>
-                      <li><a href="#services">We Offer</a></li>
-                      <li><a href="#about">About Us</a></li>
-                      
-                      <li><a href="#portfolio">Courses</a></li>
-                      <li><a href="#price">Price</a></li>
-                      <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                  </div>
-
-                </div>
-              </nav>
-              <!-- navbar end -->
-
-            </div>
-            <!-- main-navigation end -->
-
-          </div>
-          <!-- header-right end -->
-
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- header end -->
-
+  
   <!-- banner start --> 
   <div id="banner" class="banner">
     <div class="banner-image"></div>
@@ -128,11 +9,11 @@
       <div class="container">
         <div class="row">					 
           <div class="caption-data" style="margin-top: 0px; opacity: 1;" data-animation-effect="fadeIn">
-              <h1>One STOP Education!!!</h1>
-              <h3 class="padding-top30">Lorem ipsum dolor sit amet.</h3>
-              <div class="padding-top60 contact-form">
+              <h1></h1>
+              <h3 class="padding-top30"></h3>
+              <!-- <div class="padding-top60 contact-form">
                 <button class="btn cta-button">Learn More</button>
-              </div>
+              </div> -->
             </div>
         </div>
       </div>

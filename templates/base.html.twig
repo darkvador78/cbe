@@ -6,25 +6,24 @@
 {% block head %}
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content="Responsive HTML5 Template">
-		<meta name="author" content="webthemez">
+		<meta name="description" content="projt formation">
+		<meta name="author" content="ymz">
        
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
         <meta charset="UTF-8">  
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet"> 
-        <link href="css/animations.css" rel="stylesheet"> 
-        <link href="css/normalize.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet"> 
+		<link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet"> 
+		<link href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}" rel="stylesheet"> 
+        <link href="{{ asset('css/animations.css') }}" rel="stylesheet"> 
+        <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
 		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <title>{% block title %}Victory Educational Institution Free HTML5 Bootstrap Template!{% endblock %}</title>
     </head>
     {% endblock %}
-    {% block header %}{% endblock %}
-    <body class="no-trans">
+    {% block body %}{% endblock %}
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
@@ -186,15 +185,15 @@
 		</footer>
 		<!-- footer end -->
 		<!-- JavaScript --> 
-		<script type="text/javascript" src="plugins/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="plugins/modernizr.js"></script>
-		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
-		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+		<script type="text/javascript" src="{{ asset('plugins/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/modernizr.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/jquery.backstretch.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/jquery.appear.js') }}"></script>
 
 		<!-- Custom Scripts -->
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 
         {% block javascripts %}{% endblock %}
     </body>
