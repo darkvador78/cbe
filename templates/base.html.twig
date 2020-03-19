@@ -80,10 +80,14 @@
 												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
                                                 <li><a href="{{ url('home') }}#services">Nos offres</a></li>
                                                 <li><a href="{{ url('home') }}#about">Qui sommes nous</a></li>
-                                                
                                                 <li><a href="{{ url('home') }}#portfolio">Cours</a></li>
-                                                <li><a href="{{ url('home') }}#price">Price</a></li>
+                                                <!-- <li><a href="{{ url('home') }}#price">Price</a></li> -->
                                                 <li><a href="{{ url('home') }}#contact">Contactez nous</a></li>
+                                                {% if is_granted('ROLE_USER') %}
+                                                <li> <a href="{{ path('app_logout') }}">Logout</a></li>
+                                            {% else %}    
+                                            <li><a  href="{{ path('app_login') }}">Login</a></li>
+                                            {% endif %}
                                             </ul>
                                         </div>
     

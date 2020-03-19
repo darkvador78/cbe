@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Cours
 {
 
-    const LIMIT=2;
+    const LIMIT=10;
 
     /**
      * @ORM\Id()
