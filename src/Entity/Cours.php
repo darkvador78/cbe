@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cours
 {
+
+    const LIMIT=2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
