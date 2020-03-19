@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Cours;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Cours|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +20,15 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
+    public function findAllWithJoin(int $offset,int $limit){
+        $qb= $this->createQueryBuilder('c');
+        $qb ->orderBy('c.id','DESC')
+            ->SetFirstResult($offset)
+            ->SetMaxResults($limit);
+        $query = $qb->getQuery();
+        $paginator = new Paginator($query);
+        return $paginator;
+    }
     // /**
     //  * @return Cours[] Returns an array of Cours objects
     //  */
