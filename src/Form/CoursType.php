@@ -3,8 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Cours;
+use App\Entity\Category;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CoursType extends AbstractType
@@ -14,7 +18,17 @@ class CoursType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('img')
+            ->add('category', EntityType::class,[
+                'class'=> Category::class,
+                'choice_label'=>'title',
+                // 'expanded'=> 'true',
+                'placeholder'=>'--|====> Choisir une catégorie  <====|--',
+                'query_builder' => function (EntityRepository $er){
+                    return $er->createQueryBuilder('c')
+                            ->orderBy('c.title','ASC');
+                },
+                ])
+            ->add('imageFile', VichImageType::class, ['required' => false ])
         ;
     }
 

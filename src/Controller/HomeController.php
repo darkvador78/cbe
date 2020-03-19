@@ -14,6 +14,9 @@ class HomeController extends AbstractController
      */
     public function index(int $page=1, CoursRepository $repository)
     {
+        /**
+        * @Route("/{page<\d+>}", name="blog", methods={"GET"})
+        */
         $offset = Cours::LIMIT *($page - 1);
         $cours = $repository->findAllWithJoin((int)$offset, Cours::LIMIT);
         dump($cours); 
