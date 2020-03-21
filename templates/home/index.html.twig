@@ -535,41 +535,5 @@
 					</div>
 				</div>
 			</div>
-			<!-- .footer end -->
-{% for course in cours %}
-        <div class="col-5 mx-auto">
-                <div class="card mb-3 {% if loop.first %}text-white bg-secondary{% endif %}">
-            <h3 class="card-header">{{ course.title }}</h3>
-            <div class="card-body">
-            </div>
-            {% if course.imageName is not null %}
-                <img class="img-fluid" style="height: 290px;" src="{{ asset('img/cours/'~course.imageName) }}" alt="{{ course.title }}">
-             {% endif %}
-
-            <div class="card-body">
-                <a href="{{ url('cours_show', {id: course.id}) }}" class="card-link">En savoir plus &rarr;</a>
-            </div>
-            {# <div class="card-footer">
-                {{ course.updated_at }}
-            </div> #}
-            </div>
-        </div>
-    {% endfor %}
-    </div>
-    <div class="col-12">
-  <ul class="pagination justify-content-center">
-    <li class="page-item {% if page == 1 %}disabled {% endif %}">
-      <a class="page-link" href="{{ url('home',{page: page-1}) }}">&laquo;</a>
-    </li>
-    {% for i in 1..total %}
-    <li class="page-item {% if page == i %}active {% endif %}">
-      <a class="page-link" href="{{ url('home',{page: i}) }}">{{ i }}</a>
-    </li>
-    {% endfor %}
-    <li class="page-item {% if page == total %}disabled {% endif %}">
-      <a class="page-link" href="{{ url('home',{page: page+1}) }}">&raquo;</a>
-    </li>
-  </ul>
-</div>
-</div>
-{% endblock %}
+      <!-- .footer end -->
+      {% endblock %}
