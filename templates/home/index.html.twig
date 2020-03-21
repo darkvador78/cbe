@@ -301,7 +301,13 @@
                       </div>
                     </div>
                     <div class="modal-footer">
+                      {% if is_granted("ROLE_USER") %}
                       <a href="{{ url('cours_show', {id: course.id}) }}" class="btn btn-sm btn-default">En savoir plus &rarr;</a>
+                      {% else %}
+                      <a href="{{ url('app_login') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</a>
+                      {% endif %}
+
+                      
                       <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
                     </div>
                   </div>

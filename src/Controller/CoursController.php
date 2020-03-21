@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Cours;
 use App\Form\CoursType;
 use App\Repository\CoursRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/cours")
@@ -18,11 +19,13 @@ class CoursController extends AbstractController
     /**
      * @Route("/", name="cours_index", methods={"GET"})
      */
-    public function index(CoursRepository $coursRepository): Response
-    {
+    public function index(CoursRepository $coursRepository,Security $security): Response
+    {  if ($security->isGranted('ROLE_SUPER_ADMIN')) {
         return $this->render('cours/index.html.twig', [
             'cours' => $coursRepository->findAll(),
         ]);
+    }
+    return "acces interdit ";
     }
 
     /**
