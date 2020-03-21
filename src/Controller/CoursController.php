@@ -25,7 +25,9 @@ class CoursController extends AbstractController
             'cours' => $coursRepository->findAll(),
         ]);
     }
-    return "acces interdit ";
+    return $this->render('cours/index.html.twig', [
+        'cours' =>"",
+    ]);
     }
 
     /**
