@@ -4,10 +4,19 @@
  */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300);
+/* zed modif */
 
+  }
+.hidex{
+	display: none;
+	visibility: hidden;
+}
 .hidez{
-    visibility: hidden;
-    }
+	visibility: ;
+	position: absolute;
+	}
+	
+	/* zed modif */
 body {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -16,6 +25,7 @@ body {
 }
 html,
 body {
+	background-image: url('https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 	height: 100%;
 }
 body {
@@ -117,7 +127,9 @@ blockquote {
 ----------------------------------------------------------------------------- */
 .header {
 	color: #020202;
-	background-color: rgba(255, 255, 255, 1);
+	/* background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 1); */
+	background-color: rgba(202, 45, 133, 0.35);
 	padding: 10px 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -707,6 +719,8 @@ padding: 10px 0;
 /* Logo, Site Name, Site Slogan
 ---------------------------------- */
 .logo {
+	background-color: rgba(202, 45, 133, 0.35);
+	
 	margin: 10px 0px 10px 0;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;

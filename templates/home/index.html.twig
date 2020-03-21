@@ -545,21 +545,21 @@
 				</div>
 			</div>
       <!-- .footer end -->
-      {% block  script %}{% endblock %}
-      <script>
-        window.onscroll = function() {myFunction()};
-        
-        function myFunction() {
-          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById("zed").className = "hidez";
-          } else {
-            document.getElementById("zed").className = "header";
-          }
-          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById("zed1").className = "hidez";
-          } else {
-            document.getElementById("zed1").className = "navbar-brand scroll-top logo";
-          }
+      <div class="container">
+        <div class="social text-center">
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-flickr"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
 
-        </script>
+        <div class="clear"></div>
+        <!--CLEAR FLOATS-->
+   
+</section>
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
+      {% block  script %}{% endblock %}
+      
       {% endblock %}

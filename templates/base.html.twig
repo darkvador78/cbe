@@ -30,7 +30,7 @@
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
-        <header class="header fixed clearfix navbar navbar-fixed-top">
+        <header id="header" class="header fixed clearfix navbar navbar-fixed-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -141,7 +141,22 @@
 		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 
         {% block javascripts %} {% endblock %}
-       
+        <script>
+            window.onscroll = function() {myFunction()};
+            
+            function myFunction() {
+              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("zed").className = "";
+              } else {
+                document.getElementById("zed").className = "";
+              }
+              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("banner").className = "hidex";
+              } else {
+                document.getElementById("banner").className = "banner";
+              }
+            }
+            </script>
        
     </body>
 </html>
