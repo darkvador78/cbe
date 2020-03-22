@@ -23,7 +23,7 @@ body {
 }
 html,
 body {
-	background-image: url('https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+	background-image: url('https://wallpapercave.com/wp/V7d1Cr0.jpg');
 	height: 100%;
 }
 body {
@@ -126,6 +126,7 @@ blockquote {
 /* Layout
 ----------------------------------------------------------------------------- */
 .header {
+	height: 141px;
 	color: #020202;
 	/* background-color: rgba(255, 255, 255, 1);
 	background-color: rgba(255, 255, 255, 1); */
@@ -688,8 +689,9 @@ padding: 10px 0;
 /* Fixed Header
 ----------------------------------------------------------------------------- */
 .fixed-header-on .header {
-	background-color: rgba(255, 255, 255, 1);
-	padding: 5px 0;
+	background-color: rgba(202, 45, 133, 0.35);
+	padding:  0;
+	margin:-5;
 }
 .fixed-header-on .brand {
 	font-size: 24px;
