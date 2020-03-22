@@ -26,7 +26,7 @@ class CoursController extends AbstractController
         ]);
     }
     return $this->render('cours/index.html.twig', [
-        'cours' =>"",
+        'index' =>"index.html.twig",
     ]);
     }
 

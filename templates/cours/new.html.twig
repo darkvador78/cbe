@@ -11,10 +11,17 @@
 
     {{ include('cours/_form.html.twig') }}
 
-    <button type="button"style="color: #333333!important;" class="btn btn-dark" href="{{ path('cours_index') }}">back to list</button>
-        </div>
-</div>
-</div>
+    
+    {% if is_granted("ROLE_USER") %}
+    <button href="{{ path('cours_index') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</button>
+    {% else %}
+    <button href="{{ url('cours_index') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</button>
+    {% endif %}
+
+
+
+   
+
 </div>
 </div>
 </body>

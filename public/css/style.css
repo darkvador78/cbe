@@ -6,6 +6,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300);
 /* zed modif */
 
+  
 .hidex{
 	display: none;
 	visibility: hidden;
@@ -14,6 +15,8 @@
 
 	position: absolute;
 	}
+
+	
 	
 	/* zed modif */
 body {
@@ -90,6 +93,8 @@ a:active {
 	font-size: 18px;
 }
 img {
+	background-color: #ffffff;
+	border-radius: 33px !important;
 	display: block;
 	max-width: 100%;
 	height: auto;
