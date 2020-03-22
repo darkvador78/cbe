@@ -48,5 +48,22 @@ class UserFixtures extends Fixture
         $manager->flush();
         $this->addReference(self::USER,$user);
         $this->addReference(self::USER_2,$user2);
-    }
-}
+    
+
+
+    $user3 = new User();
+                $user3->setPassword($this->passwordEncoder->encodePassword(
+                        $user3,
+                    '123'
+                    ))
+                    ->setEmail('zz@zz.zz')
+                    ->setForName('Zied')
+                    ->setLastName('zak')
+                    ->setRoles(['ROLE_USER'])
+                    ;
+        $manager->persist($user3);
+        $manager->flush();
+        $this->addReference(self::USER,$user);
+        $this->addReference(self::USER_3,$user3);   
+                }
+            }

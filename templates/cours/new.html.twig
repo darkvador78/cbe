@@ -15,7 +15,7 @@
     {% if is_granted("ROLE_USER") %}
     <button href="{{ path('cours_index') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</button>
     {% else %}
-    <button href="{{ url('app_login') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</button>
+    <button href="{{ url('cours_index') }}" class="btn btn-sm btn-default">En savoir plus &rarr;</button>
     {% endif %}
 
 
