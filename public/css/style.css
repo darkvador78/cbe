@@ -89,6 +89,8 @@ a:active {
 	font-size: 18px;
 }
 img {
+	background-color: #ffffff;
+	border-radius: 33px !important;
 	display: block;
 	max-width: 100%;
 	height: auto;
