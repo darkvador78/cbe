@@ -1,36 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cours{% endblock %}
+{% block title %}Edit Cours{% endblock %}
 
 {% block body %}
-    <h1>Cours</h1>
+    <h1>Edit Cours</h1>
 
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>Id</th>
-                <td>{{ cour.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ cour.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ cour.content }}</td>
-            </tr>
-            <tr>
-                <th>Img</th>
-                <td><img style:'.img-fluid. max-width: 100%; and height: auto;'class="img-fluid" alt="Responsive image"src="{{  asset('img/cours/'~cour.getImageName())  }}"></td>
-            </tr>
-        </thead>
-        </tbody>
-    </table>
+    {{ include('cours/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <button type="button"style="color: #333333!important;" class="btn btn-dark" href="{{ path('cours_index') }}">back to list</button>
-
-    <button type="button"style="color: #333333!important;" class="btn btn-dark" href="{{ path('cours_edit', {'id': cour.id}) }}">Edit</button>
+    <a href="{{ path('cours_index') }}">back to list</a>
 
     {{ include('cours/_delete_form.html.twig') }}
 {% endblock %}
 
+
+
+
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a class="btn">{{ button_label|default('Save') }}</a>
+{{ form_end(form) }}
