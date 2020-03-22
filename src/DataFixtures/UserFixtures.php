@@ -12,7 +12,7 @@ class UserFixtures extends Fixture
     private $passwordEncoder;
     const USER= 'user-1';
     const USER_2= 'user-2';
-
+    const USER_3= 'user-3';
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
@@ -45,25 +45,25 @@ class UserFixtures extends Fixture
                     ->setRoles(['ROLE_ADMIN'])
                     ;
         $manager->persist($user2);
+
+        $user3 = new User();
+        $user3->setPassword($this->passwordEncoder->encodePassword(
+                    $user3,
+                    '123'
+                    ))
+            ->setEmail('user@user.com')
+            ->setForName('USR')
+            ->setLastName('user')
+            ->setRoles(['ROLE_USER'])
+                    ;
+        $manager->persist($user3);
+
         $manager->flush();
         $this->addReference(self::USER,$user);
         $this->addReference(self::USER_2,$user2);
+        $this->addReference(self::USER_3,$user3);
     
 
 
-    $user3 = new User();
-                $user3->setPassword($this->passwordEncoder->encodePassword(
-                        $user3,
-                    '123'
-                    ))
-                    ->setEmail('zz@zz.zz')
-                    ->setForName('Zied')
-                    ->setLastName('zak')
-                    ->setRoles(['ROLE_USER'])
-                    ;
-        $manager->persist($user3);
-        $manager->flush();
-        $this->addReference(self::USER,$user);
-        $this->addReference(self::USER_3,$user3);   
-                }
             }
+        }
