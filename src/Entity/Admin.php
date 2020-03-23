@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Admin;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -89,7 +90,7 @@ class Admin implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_SUPER_ADMIN';
 
         return array_unique($roles);
     }
@@ -169,7 +170,7 @@ class Admin implements UserInterface
     {
         if (!$this->courses->contains($course)) {
             $this->courses[] = $course;
-            $course->setAdmin($this);
+            $course->setUser($this);
         }
 
         return $this;
@@ -180,8 +181,8 @@ class Admin implements UserInterface
         if ($this->courses->contains($course)) {
             $this->courses->removeElement($course);
             // set the owning side to null (unless already changed)
-            if ($course->getAdmin() === $this) {
-                $course->setAdmin(null);
+            if ($course->getUser() === $this) {
+                $course->setUser(null);
             }
         }
 
