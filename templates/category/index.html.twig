@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Category index{% endblock %}
+{% block style %}
 
+{% endblock %}
 {% block body %}
+<body class="no-trans">
+    <div style:{background-color: aqua!important ; opacity: 0.8!important; }  class="container">
+        <div class="row">	
+ 
     <h1>Category index</h1>
 
-    <table class="table">
+    <table  class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -31,5 +37,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('category_new') }}">Create new</a>
+    <a class="btn btn-primary"  role="button" href="{{ path('category_new') }}">Create new</a>
+</div>
+</div>
+</body>
 {% endblock %}
