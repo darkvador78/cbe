@@ -21,10 +21,15 @@ body {
 .brand {
 	font-family: 'Raleway', sans-serif;
 }
-html,
+html{
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
 body {
 	background-image: url('https://static.vecteezy.com/system/resources/previews/000/550/070/non_2x/abstract-background-digital-technology-concept-vector-illustration.jpg');
-	height: 100%;
+	
 }
 body {
 	margin-top: 141px;

@@ -3,9 +3,18 @@
 {% block title %}New User{% endblock %}
 
 {% block body %}
+<body class="no-trans">
+    <div class="container">
+        <div class="row">					 
+          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
     <h1>Create new User</h1>
 
     {{ include('user/_form.html.twig') }}
 
+    
     <a class="btn btn-primary"  role="button" href="{{ path('user_index') }}">back to list</a>
+</div>
+</div>
+</div> 
+</body>
 {% endblock %}

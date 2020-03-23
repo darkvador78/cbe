@@ -3,6 +3,11 @@
 {% block title %}Edit Cours{% endblock %}
 
 {% block body %}
+<body class="no-trans">
+    <div class="container">
+        <div class="row">					 
+          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
+  
     <h1>Edit Cours</h1>
 
     {{ include('cours/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +15,8 @@
     <a class="btn btn-primary"  role="button" href="{{ path('cours_index') }}">back to list</a>
 
     {{ include('cours/_delete_form.html.twig') }}
+</div>
+</div>
+</div>           
+</body>
 {% endblock %}

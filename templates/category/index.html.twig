@@ -6,8 +6,10 @@
 {% endblock %}
 {% block body %}
 <body class="no-trans">
-    <div style:{background-color: aqua!important ; opacity: 0.8!important; }  class="container">
-        <div class="row">	
+    <div class="container">
+        <div class="row">					 
+          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
+
  
     <h1>Category index</h1>
 
@@ -25,8 +27,8 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.title }}</td>
                 <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    <a class="btn btn-primary"  role="button"  href="{{ path('category_show', {'id': category.id}) }}">show</a>
+                    <a class="btn btn-primary"  role="button"  href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,5 +42,8 @@
     <a class="btn btn-primary"  role="button" href="{{ path('category_new') }}">Create new</a>
 </div>
 </div>
+</div> 
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
 </body>
 {% endblock %}
