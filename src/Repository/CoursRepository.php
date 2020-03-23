@@ -20,7 +20,7 @@ class CoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Cours::class);
     }
 
-    public function findAllWithJoin(int $offset,int $limit){
+     public function findAllWithJoin(int $offset,int $limit){
         $qb= $this->createQueryBuilder('c');
         $qb ->orderBy('c.id','DESC')
             ->SetFirstResult($offset)
@@ -28,7 +28,7 @@ class CoursRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
         $paginator = new Paginator($query);
         return $paginator;
-    }
+     }
     // /**
     //  * @return Cours[] Returns an array of Cours objects
     //  */
