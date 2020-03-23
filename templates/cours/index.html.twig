@@ -3,25 +3,16 @@
 {% block title %}Cours index{% endblock %}
 
 {% block body %}
-<body class="no-trans">
-    <!-- scrollToTop --> 
-    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
-    <div class="container">
-        <div class="card">
-            <div class="card-body" style="margin-top: 0px;">
-             <h1>liste des cours</h1> 
-            </div>
-          </div>
-        
+    <h1>Cours index</h1>
 
-        <table class="table table-dark">
-            <thead>
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Title</th>
-                <th scope="col">Content</th>
-                <th scope="col">Img</th>
-                <th scope="col"> actions</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Img</th>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,8 +23,8 @@
                 <td>{{ cour.content }}</td>
                 <td>{{ cour.imageName }}</td>
                 <td>
-                    <button style="color: #333333!important;" type="button" class="btn btn-dark"a href="{{ path('cours_show', {'id': cour.id}) }}">show</button>
-                    <button style="color: #333333!important;" type="button" class="btn btn-dark" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</button>
+                    <a href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
+                    <a href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -45,7 +36,4 @@
     </table>
 
     <a href="{{ path('cours_new') }}">Create new</a>
-    </div>
-</div>
-</div>
 {% endblock %}
