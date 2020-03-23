@@ -20,7 +20,7 @@ class UserType extends AbstractType
                 'entry_options'  => [
                     'label' => false,
                     'choices' => [
-                        'Admin' => 'ROLE_ADMIN',
+                        'Admin' => 'ROLE_SUPER_ADMIN',
                         'User' => 'ROLE_USER',
                     ],
                 ],

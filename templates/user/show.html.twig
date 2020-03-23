@@ -3,9 +3,13 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
+<body class="no-trans">
+    <div class="container">
+        <div class="row">					 
+          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
     <h1>User</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -39,4 +43,8 @@
     <a class="btn btn-primary"  role="button" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
     {{ include('user/_delete_form.html.twig') }}
+</div>
+</div>
+</div> 
+</body>
 {% endblock %}
