@@ -306,7 +306,7 @@ les entreprises qui veulent avoir des conseils sur la gestion de leur entreprise
                       {% if is_granted("ROLE_USER") %}
                       <a href="{{ url('cours_show', {id: course.id}) }}" class="btn btn-sm btn-default">Accedez aux cours &rarr;</a>
                       {% else %}
-                      <a href="{{ url('app_login') }}" class="btn btn-sm btn-default"> &rarr;</a>
+                      <a href="{{ url('app_login') }}" class="btn btn-sm btn-default">login &rarr;</a>
                       {% endif %}
 
                       

@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/cours")
+ * @Route("/cours")
  */
 class CoursController extends AbstractController
 {
     /**
-     * @Route("/", name="cours_index", methods={"GET"})
+     * @Route("/profile", name="cours_index", methods={"GET"})
      */
     public function index(CoursRepository $coursRepository): Response
     {
@@ -26,7 +26,7 @@ class CoursController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="cours_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="cours_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +49,7 @@ class CoursController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="cours_show", methods={"GET"})
+     * @Route("/profile/{id}", name="cours_show", methods={"GET"})
      */
     public function show(Cours $cour): Response
     {
@@ -59,7 +59,7 @@ class CoursController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="cours_edit", methods={"GET","POST"})
+     * @Route("/admin/{id}/edit", name="cours_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Cours $cour): Response
     {
@@ -79,7 +79,7 @@ class CoursController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="cours_delete", methods={"DELETE"})
+     * @Route("/admin/{id}", name="cours_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Cours $cour): Response
     {
