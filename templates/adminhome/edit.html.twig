@@ -9,11 +9,11 @@
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
     <h1>Edit admin</h1>
 
-    {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('adminhome/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a class="btn btn-primary"  role="button" href="{{ path('admin_index') }}">back to list</a>
+    <a class="btn btn-primary"  role="button" href="{{ path('adminhome_index') }}">back to list</a>
 
-    {{ include('admin/_delete_form.html.twig') }}
+    {{ include('adminhome/_delete_form.html.twig') }}
 </div>
 </div>
 </div> 

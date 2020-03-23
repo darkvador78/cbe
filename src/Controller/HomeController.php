@@ -29,4 +29,25 @@ class HomeController extends AbstractController
             'category'=>$category->findAll(),
         ]);
     }
+
+
+     /**
+     * @Route("/", name="adminhome")
+     */
+    public function adminindex(int $page=1, CoursRepository $repository ,CategoryRepository $category)
+    {
+        /**
+        * @Route("/{page<\d+>}", name="blog", methods={"GET"})
+        */
+        $offset = Cours::LIMIT *($page - 1);
+        $cours = $repository->findAllWithJoin((int)$offset, Cours::LIMIT);
+        dump($cours);
+        $total = ceil($cours->count()/Cours::LIMIT);
+        return $this->render('adminhome/index.html.twig', [
+            'cours' => $cours,
+            'total' => $total,
+            'page' => $page,
+            'category'=>$category->findAll(),
+        ]);
+    }
 }

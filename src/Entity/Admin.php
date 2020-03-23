@@ -5,12 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\Admin\AdminInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
  */
-class Admin implements AdminInterface
+class Admin implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -46,7 +46,7 @@ class Admin implements AdminInterface
     private $LastName;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Cours", mappedBy="admin")
+     * @ORM\OneToMany(targetEntity="App\Entity\Cours", mappedBy="user")
      */
     private $courses;
 
@@ -73,17 +73,17 @@ class Admin implements AdminInterface
     }
 
     /**
-     * A visual identifier that represents this admin.
+     * A visual identifier that represents this user.
      *
-     * @see AdminInterface
+     * @see UserInterface
      */
-    public function getAdminname(): string
+    public function getUsername(): string
     {
         return (string) $this->email;
     }
 
     /**
-     * @see AdminInterface
+     * @see UserInterface
      */
     public function getRoles(): array
     {
@@ -102,7 +102,7 @@ class Admin implements AdminInterface
     }
 
     /**
-     * @see AdminInterface
+     * @see UserInterface
      */
     public function getPassword(): string
     {
@@ -117,7 +117,7 @@ class Admin implements AdminInterface
     }
 
     /**
-     * @see AdminInterface
+     * @see UserInterface
      */
     public function getSalt()
     {
@@ -125,7 +125,7 @@ class Admin implements AdminInterface
     }
 
     /**
-     * @see AdmiInterface
+     * @see UserInterface
      */
     public function eraseCredentials()
     {
