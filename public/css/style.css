@@ -44,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #333333;
+	color: #0c0000;
 }
 h1 {
 	font-size: 38px;
@@ -74,7 +74,7 @@ h1 span,
 h2 span,
 h3 span,
 h4 span {
-	color: #0A94DB;
+	color: rgb(7, 8, 8);
 }
 .colored {
 	color: #0A94DB;
