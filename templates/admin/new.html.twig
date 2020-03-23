@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New admin{% endblock %}
+
+{% block body %}
+<body class="no-trans">
+    <div class="container">
+        <div class="row">					 
+          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
+    <h1>Create new admin</h1>
+
+    {{ include('admin/_form.html.twig') }}
+
+    
+    <a class="btn btn-primary"  role="button" href="{{ path('admin_index') }}">back to list</a>
+</div>
+</div>
+</div> 
+</body>
+{% endblock %}
