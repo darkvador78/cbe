@@ -11,6 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
+/**
+ * @Route("/adminhome/{id}")
+ * @ParamConverter("user", class="SensiocoursBundle:user")
+ */
 class Admin implements UserInterface
 {
     /**
