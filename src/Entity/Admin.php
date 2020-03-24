@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Admin;
+use App\Entity\Cours;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -11,10 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-/**
- * @Route("/adminhome/{id}")
- * @ParamConverter("user", class="SensiocoursBundle:user")
- */
+
 class Admin implements UserInterface
 {
     /**
