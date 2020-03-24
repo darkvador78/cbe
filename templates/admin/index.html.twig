@@ -31,8 +31,8 @@
                 <td>{{ admin.ForName }}</td>
                 <td>{{ admin.LastName }}</td>
                 <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('adminhome_show', {'id': admin.id}) }}">show</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('adminhome_edit', {'id': admin.id}) }}">edit</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('admin_show', {'id': admin.id}) }}">show</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -45,7 +45,7 @@
 
     
     
-    <a class="btn btn-primary"  role="button" href="{{ path('adminhome_new') }}">Create new</a>
+    <a class="btn btn-primary"  role="button" href="{{ path('admin_new') }}">Create new</a>
 </div>
 </div>
 </div> 

@@ -19,17 +19,17 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/adminhome", name="adminhome_index", methods={"GET"})
+     * @Route("/admin", name="admin_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('adminhome/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'admins' => $adminRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="adminhome_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_new", methods={"GET","POST"})
      */
     public function new(Request $request,UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -48,17 +48,17 @@ class AdminController extends AbstractController
             ));
             $entityManager->flush();
 
-            return $this->redirectToRoute('adminhome_index');
+            return $this->redirectToRoute('admin_index');
         }
 
-        return $this->render('adminhome/new.html.twig', [
+        return $this->render('admin/new.html.twig', [
             'admin' => $admin,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="adminhome_show", methods={"GET"})
+     * @Route("/{id}", name="admin_show", methods={"GET"})
      */
     public function show(Admin $admin): Response
     {
@@ -68,7 +68,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="adminhome_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Admin $admin): Response
     {
@@ -78,10 +78,10 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('adminhome_index');
+            return $this->redirectToRoute('admin_index');
         }
 
-        return $this->render('adminhome/edit.html.twig', [
+        return $this->render('admin/edit.html.twig', [
             'admin' => $admin,
             'form' => $form->createView(),
         ]);
