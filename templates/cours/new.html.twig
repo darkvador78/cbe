@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-{% block title %}New Cours{% endblock %}
+{% block title %}Nouveau cours{% endblock %}
 
 {% block body %}
 <body class="no-trans">
@@ -8,11 +9,12 @@
         <div class="row">					 
           <div style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
   
-    <h1>Create new Cours</h1>
+    <h1>Créer un nouveau cours</h1>
 
     {{ include('cours/_form.html.twig') }}
+    
+    <a class="btn btn-primary"  role="button" href="{{ path('cours_index') }}">Retour liste</a>
 
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_index') }}">back to list</a>
 </div>
 </div>
 </div>           
