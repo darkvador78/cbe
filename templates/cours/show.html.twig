@@ -30,12 +30,14 @@
             </tr>
         </tbody>
     </table>
+    <a class="btn btn-primary"  role="button" href="{{ path('cours_index') }}">Retour liste</a>
 
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_index') }}">back to list</a>
-
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
-
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+    
+    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">Ajouter un cours</a>
+   
     {{ include('cours/_delete_form.html.twig') }}
+    {% endif %}
 </div>
 </div>
 </div>           

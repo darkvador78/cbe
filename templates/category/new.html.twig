@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}Cours index{% endblock %}
 
@@ -7,28 +8,26 @@
     <div class="container">
         <div class="row">					 
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    <h1>Cours index</h1>
+    <h1>Category index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>Content</th>
-                <th>Img</th>
+             
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for cour in cours %}
+        {% for category in category %}
             <tr>
-                <td>{{ cour.id }}</td>
-                <td>{{ cour.title }}</td>
-                <td>{{ cour.content }}</td>
-                <td>{{ cour.imageName }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.title }}</td>
+                
                 <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('category_show', {'id': category.id}) }}">Voir</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('category_edit', {'id': category.id}) }}">editer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,7 +38,7 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Create new</a>
+    <a class="btn btn-primary"  role="button" href="{{ path('category_new') }}">Créer une nouvelle categorie</a>
 </div>
 </div>
 </div> 

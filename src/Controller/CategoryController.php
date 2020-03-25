@@ -20,10 +20,15 @@ class CategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('category/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
-        ]);
-    }
+        
+          return $this->render('category/index.html.twig', [
+              'categories' => $categoryRepository->findAll(),
+         ]);
+      
+     return $this->render('category/index.html.twig', [
+         'index' =>"index.html.twig",
+     ]);
+     }
 
     /**
      * @Route("/new", name="category_new", methods={"GET","POST"})

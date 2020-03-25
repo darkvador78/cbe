@@ -21,8 +21,9 @@ class CoursType extends AbstractType
             ->add('category', EntityType::class,[
                 'class'=> Category::class,
                 'choice_label'=>'title',
-                // 'expanded'=> 'true',
-                'placeholder'=>'--|====> Choisir une catégorie  <====|--',
+                 'expanded'=> 'true',
+                 'multiple'=> 'true',
+                // 'placeholder'=>'--|====> Choisir une catégorie  <====|--',
                 'query_builder' => function (EntityRepository $er){
                     return $er->createQueryBuilder('c')
                             ->orderBy('c.title','ASC');

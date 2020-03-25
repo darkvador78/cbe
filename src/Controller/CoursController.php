@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/cours")
@@ -20,11 +21,12 @@ class CoursController extends AbstractController
      * @Route("/", name="cours_index", methods={"GET"})
      */
     public function index(CoursRepository $coursRepository,Security $security): Response
-    {  if ($security->isGranted('ROLE_SUPER_ADMIN')) {
-        return $this->render('cours/index.html.twig', [
-            'cours' => $coursRepository->findAll(),
+    {
+       if ($security->isGranted('ROLE_USER')) {
+         return $this->render('cours/index.html.twig', [
+             'cours' => $coursRepository->findAll(),
         ]);
-    }
+     }
     return $this->render('cours/index.html.twig', [
         'index' =>"index.html.twig",
     ]);
@@ -32,9 +34,11 @@ class CoursController extends AbstractController
 
     /**
      * @Route("/new", name="cours_new", methods={"GET","POST"})
+     * 
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         $cour = new Cours();
         $form = $this->createForm(CoursType::class, $cour);
         $form->handleRequest($request);
@@ -47,6 +51,7 @@ class CoursController extends AbstractController
             return $this->redirectToRoute('cours_index');
         }
 
+
         return $this->render('cours/new.html.twig', [
             'cour' => $cour,
             'form' => $form->createView(),
@@ -55,22 +60,27 @@ class CoursController extends AbstractController
 
     /**
      * @Route("/{id}", name="cours_show", methods={"GET"})
+     * 
+     * 
      */
     public function show(Cours $cour): Response
     {
+       
         return $this->render('cours/show.html.twig', [
-            'cour' => $cour,
+            'cour' => $cour
+
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="cours_edit", methods={"GET","POST"})
+     * 
      */
     public function edit(Request $request, Cours $cour): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         $form = $this->createForm(CoursType::class, $cour);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -79,15 +89,17 @@ class CoursController extends AbstractController
 
         return $this->render('cours/edit.html.twig', [
             'cour' => $cour,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
      * @Route("/{id}", name="cours_delete", methods={"DELETE"})
+     * 
      */
     public function delete(Request $request, Cours $cour): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER-ADMIN');
         if ($this->isCsrfTokenValid('delete'.$cour->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($cour);
