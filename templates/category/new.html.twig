@@ -1,47 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cours index{% endblock %}
+{% block title %}New Category{% endblock %}
 
 {% block body %}
-<body class="no-trans">
-    <div class="container">
-        <div class="row">					 
-          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    <h1>Cours index</h1>
+    <h1>Create new Category</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Img</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for cour in cours %}
-            <tr>
-                <td>{{ cour.id }}</td>
-                <td>{{ cour.title }}</td>
-                <td>{{ cour.content }}</td>
-                <td>{{ cour.imageName }}</td>
-                <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {{ include('category/_form.html.twig') }}
 
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Create new</a>
-</div>
-</div>
-</div> 
-</body>
+    <a href="{{ path('category_index') }}">back to list</a>
 {% endblock %}
