@@ -78,6 +78,7 @@
                                         <!-- Collect the nav links, forms, and other content for toggling -->
                                         <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                                             <ul class="nav navbar-nav navbar-right">
+                                             
 												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
                                                 <li><a href="{{ url('home') }}#services">Nos offres</a></li>
                                                 <li><a href="{{ url('home') }}#about">A propos</a></li>
@@ -86,11 +87,23 @@
                                                 <li><a href="{{ url('home') }}#contact">Contact</a></li>
                                                 {% if is_granted('ROLE_USER') %}
                                                 <li> <a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espace admin <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                      <li><a href="{{ path('cours_index') }}">liste des Cours</a></li>
+                                                      <li><a href="{{ path('user_index') }}">liste des Users</a></li>
+                                                      <li><a href="{{ path('category_index') }}">liste des Categories</a></li>
+                                                      <li><a href="{{ path('admin_index') }}">liste des Admin</a></li>
+                                                      <li class="divider"></li>
+                                                      
+                                                {% endif %}
                                             {% else %}    
                                             <li><a  href="{{ path('app_login') }}">Connexion</a></li>
                                             {% endif %}
+                                          
                                             </ul>
-
+                                           
                                             
                              
                                         </div>
