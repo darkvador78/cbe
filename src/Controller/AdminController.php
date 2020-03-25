@@ -35,7 +35,7 @@ class AdminController extends AbstractController
      */
     public function new(Request $request,UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $admin = new User();
+        $admin = new Admin();
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
         $this->passwordEncoder = $passwordEncoder;
