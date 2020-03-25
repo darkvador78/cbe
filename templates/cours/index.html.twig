@@ -8,7 +8,21 @@
     <div class="container">
         <div class="row">					 
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    <h1>Cours index</h1>
+    
+            <nav  class="navbar navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{{ url('home') }}">client</a>
+              
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{{ url('user_index') }}">user <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url('cours_index') }}">cours</a>
+                    <a class="nav-item nav-link" href="{{ url('category_index') }}">category</a>
+                    
+                  </div>
+                </div>
+              </nav>
+    
+            <h1>Cours index</h1>
 
     <table class="table table-bordered">
         <thead>
@@ -18,6 +32,7 @@
                 <th>Content</th>
                 <th>Img</th>
                 <th>actions</th>
+                <!-- <th>user_id</th> -->
             </tr>
         </thead>
         <tbody>
@@ -30,6 +45,7 @@
                 <td>{{ cour.title }}</td>
                 <td>{{ cour.content }}</td>
                 <td>{{ cour.imageName }}</td>
+               
                 <td>
                     <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
                     <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>

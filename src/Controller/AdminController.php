@@ -2,29 +2,31 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Admin;
+use App\Controller\ADM;
 use App\Form\AdminType;
-use App\Repository\UserRepository;
 use App\Repository\AdminRepository;
+use App\Repository\UserRepository;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/")
+ * @Route("/admin")
  */
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin_index", methods={"GET"})
+     * @Route("/", name="admin_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('admin/index.html.twig', [
-            'admins' => $adminRepository->findAll(),
+            'admins' => $userRepository->findAll(),
         ]);
     }
 
@@ -33,7 +35,7 @@ class AdminController extends AbstractController
      */
     public function new(Request $request,UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $admin = new Admin();
+        $admin = new User();
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
         $this->passwordEncoder = $passwordEncoder;

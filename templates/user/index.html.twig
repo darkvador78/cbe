@@ -7,7 +7,20 @@
     <div class="container">
         <div class="row">					 
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    <h1>User index</h1>
+            <nav  class="navbar navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{{ url('home') }}">client</a>
+              
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{{ url('user_index') }}">user <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url('cours_index') }}">cours</a>
+                    <a class="nav-item nav-link" href="{{ url('category_index') }}">category</a>
+                    
+                  </div>
+                </div>
+              </nav>
+    
+            <h1>User index</h1>
 
     <table class="table table-bordered">
         <thead>
@@ -46,9 +59,11 @@
     
     
     <a class="btn btn-primary"  role="button" href="{{ path('user_new') }}">Create new</a>
+    
 </div>
 </div>
 </div> 
     <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+    
 </body>
     {% endblock %}

@@ -3,10 +3,32 @@
 {% block title %}admin index{% endblock %}
 
 {% block body %}
+
+
 <body class="no-trans">
     <div class="container">
         <div class="row">					 
-          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
+            <div style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;"  data-animation-effect="fadeIn">
+
+
+            <nav  class="navbar navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{{ url('home') }}">client</a>
+              
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{{ url('user_index') }}">user <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url('cours_index') }}">cours</a>
+                    <a class="nav-item nav-link" href="{{ url('category_index') }}">category</a>
+                    
+                  </div>
+                </div>
+              </nav>
+
+
+  
+
+
+
     <h1>admin index</h1>
 
     <table class="table table-bordered">

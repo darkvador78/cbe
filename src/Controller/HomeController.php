@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Controller\AdminRepository;
 use App\Entity\Cours;
 use App\Repository\CoursRepository;
 use App\Repository\CategoryRepository;
@@ -32,7 +32,7 @@ class HomeController extends AbstractController
 
 
      /**
-     * @Route("/", name="adminhome")
+     * @Route("/", name="admin")
      */
     public function adminindex(int $page=1, CoursRepository $repository ,CategoryRepository $category)
     {
@@ -43,7 +43,7 @@ class HomeController extends AbstractController
         $cours = $repository->findAllWithJoin((int)$offset, Cours::LIMIT);
         dump($cours);
         $total = ceil($cours->count()/Cours::LIMIT);
-        return $this->render('adminhome/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'cours' => $cours,
             'total' => $total,
             'page' => $page,
