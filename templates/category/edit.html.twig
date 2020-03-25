@@ -1,50 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cours{% endblock %}
+{% block title %}Category index{% endblock %}
 
 {% block body %}
-<body class="no-trans">
-    <div class="container">
-        <div class="row">					 
-          <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    <h1>Cours</h1>
+    <h1>Category index</h1>
 
     <table class="table">
-        <tbody>
+        <thead>
             <tr>
                 <th>Id</th>
-                <td>{{ cour.id }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
-                <td>{{ cour.title }}</td>
+                <th>actions</th>
             </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
             <tr>
-                <th>Content</th>
-                <td>{{ cour.content }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.title }}</td>
+                <td>
+                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                </td>
             </tr>
+        {% else %}
             <tr>
-                <th>Img</th>
-                <td><img src="{{  asset('img/cours/'~cour.getImageName())  }}"></td>
+                <td colspan="3">no records found</td>
             </tr>
+        {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-primary" role="button" href="{{ path('cours_index') }}">back to list</a>
-
-    <a class="btn btn-primary" role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
-
-    
-</div>
-</div>
-</div>           
-</body>
-{{ include('cours/_delete_form.html.twig') }}
-{% endblock  %}
-
-
-
-
-
-
-
+    <a href="{{ path('category_new') }}">Create new</a>
+{% endblock %}

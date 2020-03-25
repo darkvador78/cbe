@@ -73,6 +73,28 @@
                                                 <span class="icon-bar"></span>
                                             </button>
                                         </div>
+                                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace-Administrateur</a>
+                                            <div class="dropdown-menu" style="">
+                                            <a class="dropdown-item disabled" href="#"></a>
+                                            <a class="dropdown-item" href="{{ path('cours_index') }}">Liste cours</a>
+                                            
+                                            <a class="dropdown-item" href="{{ path('cours_new') }}">Nouveau</a>
+                                            <div class="dropdown-divider"></div>
+                                           
+                                            <a class="dropdown-item disabled" href="{{ path('category_index') }}"></a>
+                                            <a class="dropdown-item" href="{{ path('category_index') }}">Liste des categories</a>
+                                            <a class="dropdown-item" href="{{ path('category_new') }}">Nouvelle</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item disabled" href="{{ path('user_index') }}"></a>
+                                            <a class="dropdown-item" href="{{ path('user_index') }}">Liste des users</a>
+                                            <a class="dropdown-item" href="{{ path('user_new') }}">Nouveau</a>
+                                            </div>
+                                        </li>
+                                        {% endif %}
     
                                         <!-- Collect the nav links, forms, and other content for toggling -->
                                         <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
@@ -89,6 +111,9 @@
                                             <li><a  href="{{ path('app_login') }}">Connexion</a></li>
                                             {% endif %}
                                             </ul>
+
+                                            
+                             
                                         </div>
     
                                     </div>

@@ -26,11 +26,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
                 <th>ForName</th>
                 <th>LastName</th>
+                <th>Email</th>
+                <th>Roles</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -38,14 +38,15 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.ForName }}</td>
                 <td>{{ user.LastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+              
                 <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('user_show', {'id': user.id}) }}">Voir</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('user_delete', {'id': user.id}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -53,6 +54,7 @@
                 <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
+        
         </tbody>
     </table>
 
