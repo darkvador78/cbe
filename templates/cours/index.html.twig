@@ -27,13 +27,10 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
-                {% endif %}
-                <th>Titre</th>
-                <th>Contenu</th>
+                <th>Title</th>
+                <th>Content</th>
                 <th>Img</th>
-                {% if is_granted('ROLE_ADMIN') %}
                 <th>actions</th>
                 <!-- <th>user_id</th> -->
             </tr>
@@ -44,36 +41,29 @@
 
         
             <tr>
-                {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ cour.id }}</td>
-                {% endif %}
-               
                 <td>{{ cour.title }}</td>
                 <td>{{ cour.content }}</td>
                 <td>{{ cour.imageName }}</td>
                
                 <td>
-                    {% if is_granted('ROLE_ADMIN') %}
                     <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
                     <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
-                    {% endif %}
                 </td>
-               
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">pas de cours enregistrés</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    {% if is_granted('ROLE_SUPER_ADMIN') %}
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Créer nouveau</a>
-    {% endif %}
 
+    <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Create new</a>
+</div>
 </div>
 </div>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
 </body>
-    
+    {% endblock %}
