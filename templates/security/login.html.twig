@@ -27,7 +27,7 @@
 	position:absolute;
 	top:0;
 	left:0;
-	background-color: #1a1724;               
+	background-color: #4b7eee;               
 }
 .canvas-wrap{
 	position:relative;
@@ -141,7 +141,7 @@ margin-left: 4px;
 
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+				<h3>Se connecter</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -156,7 +156,7 @@ margin-left: 4px;
     
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
             </div>
         {% endif %}
     
@@ -180,37 +180,25 @@ margin-left: 4px;
         >
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
+						<input type="checkbox">Se souvenir de moi
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="connexion" class="btn float-right login_btn">
 					</div>
                 </form>
             </div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
+					Pas encore de compte?<a href="#">S'inscrire</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<a href="#">Mot de passe oublié?</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-	<script src="{{ asset('js/three.min.js') }}"></script>
-		
-	<!-- Helpers -->
-	<script src="{{ asset('js/projector.js') }}"></script>
-	<script src="{{ asset('js/canvas-renderer.js') }}"></script>
-  
-	<!-- Visualitzation adjustments -->
-	<script src="{{ asset('js/3d-lines-animation.js') }}"></script>
-  
-	<!-- Animated background color -->
-	<script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}"></script>
-	<!-- <script src="{{ asset('js/color.js') }}"></script> -->
-</script>
+	
 </body>
 {% endblock %}	

@@ -8,59 +8,45 @@
     <div class="container">
         <div class="row">					 
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-    
-            <nav  class="navbar navbar-dark bg-dark" >
-                <a class="navbar-brand" href="{{ url('home') }}">Retour Accueil</a>
-              
-               
-                    
-                  </div>
-                </div>
-              </nav>
-    
             <h1>Cours index</h1>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Img</th>
-                <th>actions</th>
-                <!-- <th>user_id</th> -->
-            </tr>
-        </thead>
-        <tbody>
-        {% for cour in cours %}
-
-
-        
-            <tr>
-                <td>{{ cour.id }}</td>
-                <td>{{ cour.title }}</td>
-                <td>{{ cour.content }}</td>
-                <td>{{ cour.imageName }}</td>
-               
-                <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">Voir</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">Créer </a>
-                    <a class="navbar-brand" href="{{ url('home') }}">Retour Accueil</a>
-                    
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Create new</a>
-</div>
-</div>
-</div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Img</th>
+                        <th>actions</th>
+                        <!-- <th>user_id</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                {% for cour in cours %}              
+                    <tr>
+                        <td>{{ cour.id }}</td>
+                        <td>{{ cour.title }}</td>
+                        <td>{{ cour.content }}</td>
+                        <td>{{ cour.imageName }}</td>
+                       
+                        <td>
+                            <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">Voir</a>
+                            <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">Créer </a>
+                            <a class="navbar-brand" href="{{ url('home') }}">Retour Accueil</a>
+                            
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>        
+            <a class="btn btn-primary"  role="button" href="{{ path('cours_new') }}">Create new</a>
+        </div>
+    </div>                                  
+</div>                         
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
 </body>
