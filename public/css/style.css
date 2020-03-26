@@ -42,14 +42,15 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 html{
-	
+	background-color: black;
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
 }
 
-body {
-	margin-top: 141px;
+body { 
+	top:-20px;
+	margin-top: 101px;
 	font-size: 15px;
 	line-height: 1.50;
 	color: #333333;
@@ -153,7 +154,7 @@ blockquote {
 	/* background-color: rgba(255, 255, 255, 1);
 	background-color: rgba(255, 255, 255, 1); */
 	background-color: rgba(202, 45, 133, 0.35);
-	padding: 10px 0;
+	padding:  0;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -373,7 +374,7 @@ color: #949494;
 }
 .hero-caption{
 text-align:center;
-padding:40px 0;
+padding: 165px 0;
 }
 .hero-caption h2{
 text-align:center;
