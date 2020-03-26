@@ -10,9 +10,13 @@
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
     
             <nav  class="navbar navbar-dark bg-dark" >
-                <a class="navbar-brand" href="{{ url('home') }}">Retour Accueil</a>
+                <a class="navbar-brand" href="{{ url('home') }}">client</a>
               
-               
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{{ url('user_index') }}">user <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url('cours_index') }}">cours</a>
+                    <a class="nav-item nav-link" href="{{ url('category_index') }}">category</a>
                     
                   </div>
                 </div>
@@ -43,10 +47,8 @@
                 <td>{{ cour.imageName }}</td>
                
                 <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">Voir</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">Créer </a>
-                    <a class="navbar-brand" href="{{ url('home') }}">Retour Accueil</a>
-                    
+                    <a class="btn btn-primary"  role="button" href="{{ path('cours_show', {'id': cour.id}) }}">show</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('cours_edit', {'id': cour.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
