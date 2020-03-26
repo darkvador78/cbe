@@ -21,23 +21,22 @@
 		<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
 		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <title>{% block title %}M.Z Formation {% endblock %}</title>
-  <!-- Main library -->
-  <script src="js/three.min.js"></script>
+
+    </head>
+    <style>
+     
       
-  <!-- Helpers -->
-  <script src="js/projector.js"></script>
-  <script src="js/canvas-renderer.js"></script>
-
-  <!-- Visualitzation adjustments -->
-  <script src="js/3d-lines-animation.js"></script>
-
-  <!-- Animated background color -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <script src="js/color.js"></script>
-	</head>
+    
+    </style>
 	{% endblock %}
     <body>
-       
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+               
+            </div>
+            <div id="canvas" class="gradient"></div>
+            
+        </section>
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
@@ -150,8 +149,20 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+  <!-- Main library -->
+  <script src="{{ asset('js/three.min.js') }}"></script>
+      
+  <!-- Helpers -->
+  <script src="{{ asset('js/projector.js') }}"></script>
+  <script src="{{ asset('js/canvas-renderer.js') }}"></script>
 
-        {% block javascripts %} {% endblock %}
+  <!-- Visualitzation adjustments -->
+  <script src="{{ asset('js/3d-lines-animation.js') }}"></script>
+
+  <!-- Animated background color -->
+  <script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/color.js') }}"></script>
+  
        
            
         
