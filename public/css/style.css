@@ -4,6 +4,30 @@
  */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300);
+
+
+
+
+#canvas{
+	width:100%;
+	height:700px;
+	overflow: hidden;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color: #1a1724;               
+}
+.canvas-wrap{
+	position:relative;
+	
+}
+div.canvas-content{
+	position:relative;
+	z-index:2000;
+	color:#fff;
+	text-align:center;
+	padding-top:30px;
+}
 /* zed modif */
 
   
@@ -31,10 +55,6 @@ html{
 	margin: 0px;
 }
 
-body {
-	background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.shortpixel.ai%2Fclient%2Fq_lqip%2Cret_wait%2Cw_603%2Ch_232%2Fhttps%3A%2F%2Fghostwritingllc.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F05%2Fcalifornia-distance-learning-project.jpg&imgrefurl=https%3A%2F%2Fghostwritingllc.com%2Fblog%2Fwebsites-for-learning-english-writing-grammar%2F&tbnid=B0ivxWiMONX51M&vet=10CCcQMyiiA2oXChMIsJ7Vm-i16AIVAAAAAB0AAAAAEAY..i&docid=wsgm37BNugvvUM&w=800&h=308&q=image%20background%20site%20e%20learning&client=firefox-b-d&ved=0CCcQMyiiA2oXChMIsJ7Vm-i16AIVAAAAAB0AAAAAEAY');
-	
-}
 body {
 	margin-top: 141px;
 	font-size: 15px;

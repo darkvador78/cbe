@@ -22,11 +22,21 @@
 		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <title>{% block title %}M.Z Formation {% endblock %}</title>
 
-	</head>
+    </head>
+    <style>
+     
+      
+    
+    </style>
 	{% endblock %}
     <body>
-   
-
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+               
+            </div>
+            <div id="canvas" class="gradient"></div>
+            
+        </section>
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
@@ -156,24 +166,22 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+  <!-- Main library -->
+  <script src="{{ asset('js/three.min.js') }}"></script>
+      
+  <!-- Helpers -->
+  <script src="{{ asset('js/projector.js') }}"></script>
+  <script src="{{ asset('js/canvas-renderer.js') }}"></script>
 
-        {% block javascripts %} {% endblock %}
-        <!-- <script>
-            window.onscroll = function() {myFunction()};
-            
-            function myFunction() {
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("zed").className = "";
-              } else {
-                document.getElementById("zed").className = "";
-              }
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("banner").className = "hidex";
-              } else {
-                document.getElementById("banner").className = "banner";
-              }
-            }
-            </script> -->
+  <!-- Visualitzation adjustments -->
+  <script src="{{ asset('js/3d-lines-animation.js') }}"></script>
+
+  <!-- Animated background color -->
+  <script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/color.js') }}"></script>
+  
        
+           
+        
     </body>
 </html>
