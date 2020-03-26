@@ -7,11 +7,18 @@
     <div class="container">
         <div class="row">					 
           <div  style="background-color:aqua!important; margin-top: 0px; opacity: 0.8!important;" data-animation-effect="fadeIn">
-            
+            <nav  class="navbar navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{{ url('home') }}">client</a>
+              
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{{ url('user_index') }}">user <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url('cours_index') }}">cours</a>
+                    <a class="nav-item nav-link" href="{{ url('category_index') }}">category</a>
                     
                   </div>
                 </div>
-              
+              </nav>
     
             <h1>User index</h1>
 
@@ -19,11 +26,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>ForName</th>
-                <th>LastName</th>
                 <th>Email</th>
                 <th>Roles</th>
-
+                <th>Password</th>
+                <th>ForName</th>
+                <th>LastName</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,31 +38,28 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.ForName }}</td>
-                <td>{{ user.LastName }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-              
+                <td>{{ user.password }}</td>
+                <td>{{ user.ForName }}</td>
+                <td>{{ user.LastName }}</td>
                 <td>
-                    <a class="btn btn-primary"  role="button" href="{{ path('user_show', {'id': user.id}) }}">Voir</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-                    <a class="btn btn-primary"  role="button" href="{{ path('user_delete', {'id': user.id}) }}">Supprimer</a>
-                    
+                    <a class="btn btn-primary"  role="button" href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a class="btn btn-primary"  role="button" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">Auncun cours enregistés</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
-        
         </tbody>
     </table>
 
     
     
-    <a class="btn btn-primary"  role="button" href="{{ path('user_new') }}">Créer</a>
-    <a class="btn btn-primary" role="button"  href="{{ url('home') }}">client</a>
+    <a class="btn btn-primary"  role="button" href="{{ path('user_new') }}">Create new</a>
+    
 </div>
 </div>
 </div> 
