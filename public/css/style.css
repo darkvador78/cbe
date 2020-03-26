@@ -49,9 +49,6 @@ html{
 }
 
 body { 
-	top: -88px;
-	
-	margin-top: 101px;
 	font-size: 15px;
 	line-height: 1.50;
 	color: #333333;
@@ -564,15 +561,15 @@ padding: 10px 0;
 }
 .main-navigation .navbar-default .navbar-nav > li > a {
 	padding: 10px 20px;
-	color: #949494;  font-weight: 700;  font-size: 16px;
+ color: rgba(3, 10, 26,0.5);;  font-weight: 700;  font-size: 16px;
 }
 .main-navigation .navbar-default .navbar-nav > li.active > a {
 	background-color: transparent;
-	color: #356DE8;
+	color: rgb(0, 0, 0);
 }
 .main-navigation .navbar-default .navbar-nav > li > a:hover,
 .main-navigation .navbar-default .navbar-nav > li.active > a:hover {
-	color: #306AE8;
+	color: #949494
 }
 
 /* carousel */
