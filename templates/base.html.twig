@@ -21,12 +21,23 @@
 		<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
 		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <title>{% block title %}M.Z Formation {% endblock %}</title>
+  <!-- Main library -->
+  <script src="js/three.min.js"></script>
+      
+  <!-- Helpers -->
+  <script src="js/projector.js"></script>
+  <script src="js/canvas-renderer.js"></script>
 
+  <!-- Visualitzation adjustments -->
+  <script src="js/3d-lines-animation.js"></script>
+
+  <!-- Animated background color -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="js/color.js"></script>
 	</head>
 	{% endblock %}
     <body>
-   
-
+       
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
@@ -141,22 +152,8 @@
 		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 
         {% block javascripts %} {% endblock %}
-        <script>
-            window.onscroll = function() {myFunction()};
-            
-            function myFunction() {
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("zed").className = "";
-              } else {
-                document.getElementById("zed").className = "";
-              }
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("banner").className = "hidex";
-              } else {
-                document.getElementById("banner").className = "banner";
-              }
-            }
-            </script>
        
+           
+        
     </body>
 </html>
