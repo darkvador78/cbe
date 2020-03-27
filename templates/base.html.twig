@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+{% block head %}
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="projt formation">
+		<meta name="author" content="ymz">
+       
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+        <meta charset="UTF-8">  
+		<link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet"> 
+		<link href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}" rel="stylesheet"> 
+        <link href="{{ asset('css/animations.css') }}" rel="stylesheet"> 
+        <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet"> 
+		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+        <title>{% block title %}M.Z Formation {% endblock %}</title>
+
+    </head>
+    <style>
+     
+      
+    
+    </style>
+	{% endblock %}
+    <body>
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+               
+            </div>
+            <div id="canvas" class="gradient"></div>
+            
+        </section>
+        <!-- scrollToTop --> 
+        <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+        <!-- header start --> 
+        <header id="header" class="header fixed clearfix navbar navbar-fixed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+    
+                        <!-- header-left start --> 
+                        <div class="header-left">
+    
+                            <!-- logo -->
+                            <div class="logo smooth-scroll">
+                                <a href="{{ path('app_login') }}"><img id="logo" src="images/logo.png" alt="Worthy"></a>
+                            </div>
+    
+                            <!-- name-and-slogan -->
+                            <div class="logo-section smooth-scroll">
+                                <div class="brand"><a href="{{ path('app_login') }}"> M.Z-Formation</a></div>								
+                            </div>
+    
+                        </div>
+                        <!-- header-left end -->
+    
+                    </div>
+                    <div class="col-md-8">
+    
+                        <!-- header-right start --> 
+                        <div class="header-right">
+    
+                            <!-- main-navigation start --> 
+                            <div class="main-navigation animated">
+    
+                                <!-- navbar start --> 
+                                <nav class="navbar navbar-default" role="navigation">
+                                    <div class="container-fluid">
+    
+                                        <!-- Toggle get grouped for better mobile display -->
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                        </div>
+                                        
+    
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
+                                        <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                            <ul class="nav navbar-nav navbar-right">
+                                             
+
+
+
+
+
+                                                {% if is_granted('ROLE_USER') %}
+                                                <li> <a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espace admin <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                      <li><a href="{{ path('cours_index') }}">liste des Cours</a></li>
+                                                      <li><a href="{{ path('user_index') }}">liste des Users</a></li>
+                                                      <li><a href="{{ path('category_index') }}">liste des Categories</a></li>
+                                                      <li><a href="{{ path('admin_index') }}">liste des Admin</a></li>
+                                                      <li class="divider"></li>
+                                                      
+                                                {% endif %}
+                                            {% else %}    
+                                            <li><a  href="{{ path('app_login') }}">Connexion</a></li>
+                                            {% endif %}
+                                          
+
+
+
+
+
+
+												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
+                                                <li><a href="{{ url('home') }}#services">Nos offres</a></li>
+                                                <li><a href="{{ url('home') }}#about">A propos</a></li>
+                                                <li><a href="{{ url('home') }}#portfolio">Cours</a></li>
+                                                <!-- <li><a href="{{ url('home') }}#price">Price</a></li> -->
+                                                <li><a href="{{ url('home') }}#contact">Contact</a></li>
+                                  
+                                            </ul>
+                                           
+                                            
+                             
+                                        </div>
+    
+                                    </div>
+                                </nav>
+                                <!-- navbar end -->
+    
+                            </div>
+                            <!-- main-navigation end -->
+    
+                        </div>
+                        <!-- header-right end -->
+    
+                    </div>
+                </div>
+            </div>
+        </header>
+ {% block body %}{% endblock %}
+
+
+
+
+
+
+{% block footer %}{% endblock  %}
+			
+<div class="clear">
+    <!--CLEAR FLOATS-->
+    <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+</div>
+			<!-- .subfooter start --> 
+			<div class="subfooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center">Copyright © 2020. <a href="#" target="_blank">M.Z Formation</a> by M.Z</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .subfooter end -->
+            
+        </footer>
+		<!-- footer end -->
+		<!-- JavaScript --> 
+		<script type="text/javascript" src="{{ asset('plugins/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/modernizr.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/jquery.backstretch.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/jquery.appear.js') }}"></script>
+
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+  <!-- Main library -->
+  <script src="{{ asset('js/three.min.js') }}"></script>
+      
+  <!-- Helpers -->
+  <script src="{{ asset('js/projector.js') }}"></script>
+  <script src="{{ asset('js/canvas-renderer.js') }}"></script>
+
+  <!-- Visualitzation adjustments -->
+  <script src="{{ asset('js/3d-lines-animation.js') }}"></script>
+
+  <!-- Animated background color -->
+  <script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/color.js') }}"></script>
+  
+       
+           
+        
+    </body>
+</html>
