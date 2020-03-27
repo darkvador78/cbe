@@ -89,12 +89,11 @@
                                         <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                                             <ul class="nav navbar-nav navbar-right">
                                              
-												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
-                                                <li><a href="{{ url('home') }}#services">Nos offres</a></li>
-                                                <li><a href="{{ url('home') }}#about">A propos</a></li>
-                                                <li><a href="{{ url('home') }}#portfolio">Cours</a></li>
-                                                <!-- <li><a href="{{ url('home') }}#price">Price</a></li> -->
-                                                <li><a href="{{ url('home') }}#contact">Contact</a></li>
+
+
+
+
+
                                                 {% if is_granted('ROLE_USER') %}
                                                 <li> <a href="{{ path('app_logout') }}">Déconnexion</a></li>
                                                 {% if is_granted('ROLE_SUPER_ADMIN') %}
@@ -112,6 +111,19 @@
                                             <li><a  href="{{ path('app_login') }}">Connexion</a></li>
                                             {% endif %}
                                           
+
+
+
+
+
+
+												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
+                                                <li><a href="{{ url('home') }}#services">Nos offres</a></li>
+                                                <li><a href="{{ url('home') }}#about">A propos</a></li>
+                                                <li><a href="{{ url('home') }}#portfolio">Cours</a></li>
+                                                <!-- <li><a href="{{ url('home') }}#price">Price</a></li> -->
+                                                <li><a href="{{ url('home') }}#contact">Contact</a></li>
+                                  
                                             </ul>
                                            
                                             
