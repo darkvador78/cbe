@@ -30,6 +30,7 @@ class CoursController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         $cour = new Cours();
         $form = $this->createForm(CoursType::class, $cour);
         $form->handleRequest($request);
@@ -42,6 +43,7 @@ class CoursController extends AbstractController
             return $this->redirectToRoute('cours_index');
         }
 
+
         return $this->render('cours/new.html.twig', [
             'cour' => $cour,
             'form' => $form->createView(),
@@ -53,8 +55,10 @@ class CoursController extends AbstractController
      */
     public function show(Cours $cour): Response
     {
+       
         return $this->render('cours/show.html.twig', [
-            'cour' => $cour,
+            'cour' => $cour
+
         ]);
     }
 
@@ -63,9 +67,9 @@ class CoursController extends AbstractController
      */
     public function edit(Request $request, Cours $cour): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         $form = $this->createForm(CoursType::class, $cour);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -74,7 +78,7 @@ class CoursController extends AbstractController
 
         return $this->render('cours/edit.html.twig', [
             'cour' => $cour,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
@@ -83,6 +87,7 @@ class CoursController extends AbstractController
      */
     public function delete(Request $request, Cours $cour): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER-ADMIN');
         if ($this->isCsrfTokenValid('delete'.$cour->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($cour);
