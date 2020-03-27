@@ -22,11 +22,21 @@
 		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <title>{% block title %}M.Z Formation {% endblock %}</title>
 
-	</head>
+    </head>
+    <style>
+     
+      
+    
+    </style>
 	{% endblock %}
     <body>
-   
-
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+               
+            </div>
+            <div id="canvas" class="gradient"></div>
+            
+        </section>
         <!-- scrollToTop --> 
         <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
         <!-- header start --> 
@@ -73,10 +83,12 @@
                                                 <span class="icon-bar"></span>
                                             </button>
                                         </div>
+                                        
     
                                         <!-- Collect the nav links, forms, and other content for toggling -->
                                         <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
                                             <ul class="nav navbar-nav navbar-right">
+                                             
 												<li class="active"><a href="{{ url('home') }}">Accueil</a></li>
                                                 <li><a href="{{ url('home') }}#services">Nos offres</a></li>
                                                 <li><a href="{{ url('home') }}#about">A propos</a></li>
@@ -85,10 +97,25 @@
                                                 <li><a href="{{ url('home') }}#contact">Contact</a></li>
                                                 {% if is_granted('ROLE_USER') %}
                                                 <li> <a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espace admin <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                      <li><a href="{{ path('cours_index') }}">liste des Cours</a></li>
+                                                      <li><a href="{{ path('user_index') }}">liste des Users</a></li>
+                                                      <li><a href="{{ path('category_index') }}">liste des Categories</a></li>
+                                                      <li><a href="{{ path('admin_index') }}">liste des Admin</a></li>
+                                                      <li class="divider"></li>
+                                                      
+                                                {% endif %}
                                             {% else %}    
                                             <li><a  href="{{ path('app_login') }}">Connexion</a></li>
                                             {% endif %}
+                                          
                                             </ul>
+                                           
+                                            
+                             
                                         </div>
     
                                     </div>
@@ -114,7 +141,10 @@
 
 {% block footer %}{% endblock  %}
 			
-
+<div class="clear">
+    <!--CLEAR FLOATS-->
+    <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+</div>
 			<!-- .subfooter start --> 
 			<div class="subfooter">
 				<div class="container">
@@ -126,8 +156,8 @@
 				</div>
 			</div>
 			<!-- .subfooter end -->
-
-		</footer>
+            
+        </footer>
 		<!-- footer end -->
 		<!-- JavaScript --> 
 		<script type="text/javascript" src="{{ asset('plugins/jquery.min.js') }}"></script>
@@ -139,24 +169,22 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+  <!-- Main library -->
+  <script src="{{ asset('js/three.min.js') }}"></script>
+      
+  <!-- Helpers -->
+  <script src="{{ asset('js/projector.js') }}"></script>
+  <script src="{{ asset('js/canvas-renderer.js') }}"></script>
 
-        {% block javascripts %} {% endblock %}
-        <script>
-            window.onscroll = function() {myFunction()};
-            
-            function myFunction() {
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("zed").className = "";
-              } else {
-                document.getElementById("zed").className = "";
-              }
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("banner").className = "hidex";
-              } else {
-                document.getElementById("banner").className = "banner";
-              }
-            }
-            </script>
+  <!-- Visualitzation adjustments -->
+  <script src="{{ asset('js/3d-lines-animation.js') }}"></script>
+
+  <!-- Animated background color -->
+  <script src="{{ asset('http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/color.js') }}"></script>
+  
        
+           
+        
     </body>
 </html>
